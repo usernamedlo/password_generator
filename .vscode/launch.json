@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Rust",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/target/debug/main",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+          },      
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'password_generator'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=password_generator",
+                    "--package=password_generator"
+                ],
+                "filter": {
+                    "name": "password_generator",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'password_generator'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=password_generator",
+                    "--package=password_generator"
+                ],
+                "filter": {
+                    "name": "password_generator",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
